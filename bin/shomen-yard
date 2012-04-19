@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'shomen-yard'
+Shomen::Yard::Command.run(*ARGV)

@@ -1,0 +1,7 @@
+--private
+--protected
+-r README.md
+lib/
+-
+[A-Z]*.*
+log/[A-Z].*
