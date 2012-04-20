@@ -34,7 +34,7 @@ module Shomen
       # The location YARD documentation cache. The default is `.yardoc`.
       #
       # Returns String.
-      attr :store
+      attr_accessor :store
 
       # Use pre-existant cache instead of regenerating documentation.
       attr_accessor :use_cache
@@ -156,14 +156,12 @@ module Shomen
         return @table
       end
 
-    private
-
-      # Project metadata.
-      #
-      # Returns Metadata instance.
-      def project_metadata
-        @project_metadata ||= Shomen::Metadata.new
-      end
+      ## Project metadata.
+      ##
+      ## Returns Metadata instance.
+      #def project_metadata
+      #  @project_metadata ||= Shomen::Metadata.new
+      #end
 
       # Collect files given list of +globs+.
       #

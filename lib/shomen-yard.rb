@@ -1,5 +1,6 @@
 module Shomen
-  # Shomen Yard provides a utility for generating Shomen standard documentation
+
+  # Shomen Yard provides a utility for generating Shomen documentation
   # from YARD cache.
   #
   module Yard
@@ -22,9 +23,10 @@ module Shomen
       metadata[name.to_s.downcase] || super(name)
     end
   end
+
 end
 
-require 'shomen/generator'
+require 'shomen-model'
 require 'shomen-yard/generator'
 require 'shomen-yard/command'
 

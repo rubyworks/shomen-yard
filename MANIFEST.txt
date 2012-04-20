@@ -1,9 +1,20 @@
 #!mast .ruby .yardopts bin lib spec test [A-Z]*.*
+.ruby
 .yardopts
 bin/shomen-yard
-lib/shomen-yard/adapter.rb
 lib/shomen-yard/command.rb
+lib/shomen-yard/generator.rb
 lib/shomen-yard.rb
+spec/01_metadata.rdoc
+spec/02_class.rdoc
+spec/03_module.rdoc
+spec/04_constant.rdoc
+spec/05_method.rdoc
+spec/08_rdoc/01_interface_overloading.rdoc
+spec/09_yard/01_interface_overloading.rdoc
+spec/applique/ae.rb
+spec/applique/shomen.rb
+spec/fixture/lib/example.rb
 LICENSE.txt
 HISTORY.md
 README.md

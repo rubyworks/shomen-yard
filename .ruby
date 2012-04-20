@@ -6,13 +6,9 @@ authors:
   email: transfire@gmail.com
 copyrights: []
 requirements:
-- name: shomen
 - name: yard
+- name: shomen-model
 - name: detroit
-  groups:
-  - build
-  development: true
-- name: fire
   groups:
   - build
   development: true
