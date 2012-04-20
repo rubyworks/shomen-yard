@@ -136,18 +136,18 @@ save it to a file. Simply redirect the output to the file.</p>
 
 <p>Though JSON tends to be the format used by viewers, it can also output YAML.</p>
 
-<pre><code>$ shomen-yard -y &gt; doc-1.0.0.yaml
+<pre><code>$ shomen-yard -y &gt; doc/myapp-1.0.0.yaml
 </code></pre>
 
 <h2 id="OPTIONS">OPTIONS</h2>
 
 <ul>
 <li><p><code>-j</code>, <code>--json</code>:
-Output JSON instead of YAML. (default)</p></li>
+Output JSON instead of YAML (default).</p></li>
 <li><p><code>-y</code>, <code>--yaml</code>:
 Output YAML instead of JSON.</p></li>
 <li><p><code>-d</code>, <code>--db DIR</code>:
-Documentation store directory (deafult is <code>.rdoc</code> or <code>.yardoc</code>).</p></li>
+Documentation store directory (default is <code>.rdoc</code> or <code>.yardoc</code>).</p></li>
 <li><p><code>-c</code>, <code>--use-cache</code>
 Do not regenerate docs, use pre-existing cache.</p></li>
 <li><p><code>-s</code>, <code>--source</code>
@@ -156,15 +156,15 @@ Include full source in script documentation.</p></li>
 Prefix link to source code.</p></li>
 <li><p><code>-r</code>, <code>--readme</code>:
 Specify which document serves as the README file. If not given
-the default is the first file found that matches <code>README*</code>.</p></li>
+the default is the first file found that matches "README*".</p></li>
 <li><p><code>--markup TYPE</code>:
 Markup type used for comments (rdoc, md).</p></li>
 <li><p><code>-t</code>, <code>--title</code>:
 Title to be used when presenting documentation. If not given
 the title is looked for in project metadata and will fallback
-to the project's name captialized.</p></li>
+to the project's name capitalized.</p></li>
 <li><p><code>-F</code>, <code>--force</code>:
-Force overwrite of prexisting documentation.</p></li>
+Force overwrite of preexisting documentation.</p></li>
 <li><p><code>--debug</code>:
 Run command with Ruby's $DEBUG flag set to <code>true</code>.</p></li>
 <li><p><code>--warn</code>:
