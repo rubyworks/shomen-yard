@@ -1,5 +1,6 @@
 .rdoc_options
-.reap/digest
+.yardopts
+.fire/digest
 .yardoc
 doc
 log
@@ -7,3 +8,5 @@ pkg
 tmp
 web
 sample/.rdoc
+man/*.1
+man/*.html

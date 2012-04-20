@@ -54,18 +54,18 @@ It is a good idea to version your documentation.
 
 Though JSON tends to be the format used by viewers, it can also output YAML.
 
-    $ shomen-yard -y > doc-1.0.0.yaml
+    $ shomen-yard -y > doc/myapp-1.0.0.yaml
 
 ## OPTIONS
 
   * `-j`, `--json`:
-    Output JSON instead of YAML. (default)
+    Output JSON instead of YAML (default).
 
   * `-y`, `--yaml`:
     Output YAML instead of JSON.
 
   * `-d`, `--db DIR`:
-    Documentation store directory (deafult is `.rdoc` or `.yardoc`).
+    Documentation store directory (default is `.rdoc` or `.yardoc`).
 
   * `-c`, `--use-cache`
     Do not regenerate docs, use pre-existing cache.
@@ -78,7 +78,7 @@ Though JSON tends to be the format used by viewers, it can also output YAML.
 
   * `-r`, `--readme`:
     Specify which document serves as the README file. If not given
-    the default is the first file found that matches `README*`.
+    the default is the first file found that matches "README*".
 
   * `--markup TYPE`:
     Markup type used for comments (rdoc, md).
@@ -86,10 +86,10 @@ Though JSON tends to be the format used by viewers, it can also output YAML.
   * `-t`, `--title`:
     Title to be used when presenting documentation. If not given
     the title is looked for in project metadata and will fallback
-    to the project's name captialized.
+    to the project's name capitalized.
 
   * `-F`, `--force`:
-    Force overwrite of prexisting documentation.
+    Force overwrite of preexisting documentation.
 
   * `--debug`:
     Run command with Ruby's $DEBUG flag set to `true`.
