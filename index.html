@@ -1,1 +1,202 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='content-type' value='text/html;charset=utf8'>
+  <meta name='generator' value='Ronn/v0.7.3 (http://github.com/rtomayko/ronn/tree/0.7.3)'>
+  <title>shomen-yard(1) - generate shomen documentation via yard</title>
+  <style type='text/css' media='all'>
+  /* style: man */
+  body#manpage {margin:0}
+  .mp {max-width:100ex;padding:0 9ex 1ex 4ex}
+  .mp p,.mp pre,.mp ul,.mp ol,.mp dl {margin:0 0 20px 0}
+  .mp h2 {margin:10px 0 0 0}
+  .mp > p,.mp > pre,.mp > ul,.mp > ol,.mp > dl {margin-left:8ex}
+  .mp h3 {margin:0 0 0 4ex}
+  .mp dt {margin:0;clear:left}
+  .mp dt.flush {float:left;width:8ex}
+  .mp dd {margin:0 0 0 9ex}
+  .mp h1,.mp h2,.mp h3,.mp h4 {clear:left}
+  .mp pre {margin-bottom:20px}
+  .mp pre+h2,.mp pre+h3 {margin-top:22px}
+  .mp h2+pre,.mp h3+pre {margin-top:5px}
+  .mp img {display:block;margin:auto}
+  .mp h1.man-title {display:none}
+  .mp,.mp code,.mp pre,.mp tt,.mp kbd,.mp samp,.mp h3,.mp h4 {font-family:monospace;font-size:14px;line-height:1.42857142857143}
+  .mp h2 {font-size:16px;line-height:1.25}
+  .mp h1 {font-size:20px;line-height:2}
+  .mp {text-align:justify;background:#fff}
+  .mp,.mp code,.mp pre,.mp pre code,.mp tt,.mp kbd,.mp samp {color:#131211}
+  .mp h1,.mp h2,.mp h3,.mp h4 {color:#030201}
+  .mp u {text-decoration:underline}
+  .mp code,.mp strong,.mp b {font-weight:bold;color:#131211}
+  .mp em,.mp var {font-style:italic;color:#232221;text-decoration:none}
+  .mp a,.mp a:link,.mp a:hover,.mp a code,.mp a pre,.mp a tt,.mp a kbd,.mp a samp {color:#0000ff}
+  .mp b.man-ref {font-weight:normal;color:#434241}
+  .mp pre {padding:0 4ex}
+  .mp pre code {font-weight:normal;color:#434241}
+  .mp h2+pre,h3+pre {padding-left:0}
+  ol.man-decor,ol.man-decor li {margin:3px 0 10px 0;padding:0;float:left;width:33%;list-style-type:none;text-transform:uppercase;color:#999;letter-spacing:1px}
+  ol.man-decor {width:100%}
+  ol.man-decor li.tl {text-align:left}
+  ol.man-decor li.tc {text-align:center;letter-spacing:4px}
+  ol.man-decor li.tr {text-align:right;float:right}
+  </style>
+</head>
+<!--
+  The following styles are deprecated and will be removed at some point:
+  div#man, div#man ol.man, div#man ol.head, div#man ol.man.
+
+  The .man-page, .man-decor, .man-head, .man-foot, .man-title, and
+  .man-navigation should be used instead.
+-->
+<body id='manpage'>
+  <div class='mp' id='man'>
+
+  <div class='man-navigation' style='display:none'>
+    <a href="#NAME">NAME</a>
+    <a href="#SYNOPSIS">SYNOPSIS</a>
+    <a href="#DESCRIPTION">DESCRIPTION</a>
+    <a href="#INSTALLATION">INSTALLATION</a>
+    <a href="#INSTRUCTION">INSTRUCTION</a>
+    <a href="#OPTIONS">OPTIONS</a>
+    <a href="#EXAMPLES">EXAMPLES</a>
+    <a href="#RESOURCES">RESOURCES</a>
+    <a href="#SEE-ALSO">SEE ALSO</a>
+  </div>
+
+  <ol class='man-decor man-head man head'>
+    <li class='tl'>shomen-yard(1)</li>
+    <li class='tc'></li>
+    <li class='tr'>shomen-yard(1)</li>
+  </ol>
+
+  <h2 id="NAME">NAME</h2>
+<p class="man-name">
+  <code>shomen-yard</code> - <span class="man-whatis">generate shomen documentation via yard</span>
+</p>
+
+<h2 id="SYNOPSIS">SYNOPSIS</h2>
+
+<p><code>shomen-yard [&lt;options>...] [scripts...] - [documents...]</code></p>
+
+<h2 id="DESCRIPTION">DESCRIPTION</h2>
+
+<p>The <code>shomen-yard</code> tool is a stand-alone command line tool that can generate
+Shomen-formatted documentation from a YARD documentation cache (e.g. <code>.yardoc</code>).</p>
+
+<h2 id="INSTALLATION">INSTALLATION</h2>
+
+<p>The <code>shomen-yard</code> tool can be installed the via RubyGems.</p>
+
+<pre><code>$ gem install shomen-yard
+</code></pre>
+
+<h2 id="INSTRUCTION">INSTRUCTION</h2>
+
+<p>Using <code>shomen-yard</code> tool is similar to using the <code>yard</code> command line tool to generate
+a <code>.yardoc</code> cache. Usage will look something likes this:</p>
+
+<pre><code>$ shomen-yard -r README.rdoc -t "My Docs" lib - [A-Z]*.*
+</code></pre>
+
+<p>However, it is more helpful to make sure you project has a <code>.yardopts</code> configuration file.
+This allows <code>shomen-yard</code> to work with minimal need of command-line options. With such in
+place the command can be simplified:</p>
+
+<pre><code>$ shomen-yard
+</code></pre>
+
+<p>The .yardoc cache can be pre-generated using YARD.</p>
+
+<pre><code>$ yard -n -b .yardoc lib
+</code></pre>
+
+<p>Note, <code>-b .yardoc</code> is the default, so it can be left out. Then Shomen can use the cache
+without regenerating it via the <code>-c</code> option.</p>
+
+<pre><code>$ shomen-yard -c 
+</code></pre>
+
+<p>If the cache is stored elsewhere then the standard <code>.yardoc</code> location, inform shomen-yard
+of the location using the <code>-d</code> option.</p>
+
+<pre><code>$ shomen-yard -c -d .yardalt
+</code></pre>
+
+<p>In all these examples the output has been going to $stdout. To use the output we want to
+save it to a file. Simply redirect the output to the file.</p>
+
+<pre><code>$ shomen-yard &gt; doc.json
+</code></pre>
+
+<p>It is a good idea to version your documentation.</p>
+
+<pre><code>$ shomen-yard &gt; doc/myapp-1.0.0.json
+</code></pre>
+
+<p>Though JSON tends to be the format used by viewers, it can also output YAML.</p>
+
+<pre><code>$ shomen-yard -y &gt; doc-1.0.0.yaml
+</code></pre>
+
+<h2 id="OPTIONS">OPTIONS</h2>
+
+<ul>
+<li><p><code>-j</code>, <code>--json</code>:
+Output JSON instead of YAML. (default)</p></li>
+<li><p><code>-y</code>, <code>--yaml</code>:
+Output YAML instead of JSON.</p></li>
+<li><p><code>-d</code>, <code>--db DIR</code>:
+Documentation store directory (deafult is <code>.rdoc</code> or <code>.yardoc</code>).</p></li>
+<li><p><code>-c</code>, <code>--use-cache</code>
+Do not regenerate docs, use pre-existing cache.</p></li>
+<li><p><code>-s</code>, <code>--source</code>
+Include full source in script documentation.</p></li>
+<li><p><code>-w</code>, <code>--webcvs URI</code>:
+Prefix link to source code.</p></li>
+<li><p><code>-r</code>, <code>--readme</code>:
+Specify which document serves as the README file. If not given
+the default is the first file found that matches <code>README*</code>.</p></li>
+<li><p><code>--markup TYPE</code>:
+Markup type used for comments (rdoc, md).</p></li>
+<li><p><code>-t</code>, <code>--title</code>:
+Title to be used when presenting documentation. If not given
+the title is looked for in project metadata and will fallback
+to the project's name captialized.</p></li>
+<li><p><code>-F</code>, <code>--force</code>:
+Force overwrite of prexisting documentation.</p></li>
+<li><p><code>--debug</code>:
+Run command with Ruby's $DEBUG flag set to <code>true</code>.</p></li>
+<li><p><code>--warn</code>:
+Run with $VERBOSE set to true.</p></li>
+<li><p><code>--help</code>:
+Display command line help message.</p></li>
+</ul>
+
+
+<h2 id="EXAMPLES">EXAMPLES</h2>
+
+<p><code>shomen-yard</code><br />
+<code>shome-yard -r README.md -t "MyApp Docs" lib - [A-Z]*.*</code></p>
+
+<h2 id="RESOURCES">RESOURCES</h2>
+
+<ul>
+<li><a href="http://github.com/rubyworks/shomen-yard">On GitHub</a></li>
+</ul>
+
+
+<h2 id="SEE-ALSO">SEE ALSO</h2>
+
+<p><span class="man-ref">shomen-rdoc<span class="s">(1)</span></span></p>
+
+
+  <ol class='man-decor man-foot man foot'>
+    <li class='tl'></li>
+    <li class='tc'>April 2012</li>
+    <li class='tr'>shomen-yard(1)</li>
+  </ol>
+
+  </div>
+</body>
+</html>
