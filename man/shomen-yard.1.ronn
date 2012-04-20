@@ -1,0 +1,114 @@
+shomen-yard(1) - generate shomen documentation via yard
+=======================================================
+
+## SYNOPSIS
+
+`shomen-yard [<options>...] [scripts...] - [documents...]`
+
+## DESCRIPTION
+
+The `shomen-yard` tool is a stand-alone command line tool that can generate
+Shomen-formatted documentation from a YARD documentation cache (e.g. `.yardoc`).
+
+## INSTALLATION
+
+The `shomen-yard` tool can be installed the via RubyGems.
+
+    $ gem install shomen-yard
+
+## INSTRUCTION
+
+Using `shomen-yard` tool is similar to using the `yard` command line tool to generate
+a `.yardoc` cache. Usage will look something likes this:
+
+    $ shomen-yard -r README.rdoc -t "My Docs" lib - [A-Z]*.*
+
+However, it is more helpful to make sure you project has a `.yardopts` configuration file.
+This allows `shomen-yard` to work with minimal need of command-line options. With such in
+place the command can be simplified:
+
+    $ shomen-yard
+
+The .yardoc cache can be pre-generated using YARD.
+
+    $ yard -n -b .yardoc lib
+
+Note, `-b .yardoc` is the default, so it can be left out. Then Shomen can use the cache
+without regenerating it via the `-c` option.
+
+    $ shomen-yard -c 
+
+If the cache is stored elsewhere then the standard `.yardoc` location, inform shomen-yard
+of the location using the `-d` option.
+
+    $ shomen-yard -c -d .yardalt
+
+In all these examples the output has been going to $stdout. To use the output we want to
+save it to a file. Simply redirect the output to the file.
+
+    $ shomen-yard > doc.json
+
+It is a good idea to version your documentation.
+
+    $ shomen-yard > doc/myapp-1.0.0.json
+
+Though JSON tends to be the format used by viewers, it can also output YAML.
+
+    $ shomen-yard -y > doc-1.0.0.yaml
+
+## OPTIONS
+
+  * `-j`, `--json`:
+    Output JSON instead of YAML. (default)
+
+  * `-y`, `--yaml`:
+    Output YAML instead of JSON.
+
+  * `-d`, `--db DIR`:
+    Documentation store directory (deafult is `.rdoc` or `.yardoc`).
+
+  * `-c`, `--use-cache`
+    Do not regenerate docs, use pre-existing cache.
+
+  * `-s`, `--source`
+    Include full source in script documentation.
+
+  * `-w`, `--webcvs URI`:
+    Prefix link to source code.
+
+  * `-r`, `--readme`:
+    Specify which document serves as the README file. If not given
+    the default is the first file found that matches `README*`.
+
+  * `--markup TYPE`:
+    Markup type used for comments (rdoc, md).
+
+  * `-t`, `--title`:
+    Title to be used when presenting documentation. If not given
+    the title is looked for in project metadata and will fallback
+    to the project's name captialized.
+
+  * `-F`, `--force`:
+    Force overwrite of prexisting documentation.
+
+  * `--debug`:
+    Run command with Ruby's $DEBUG flag set to `true`.
+
+  * `--warn`:
+    Run with $VERBOSE set to true.
+
+  * `--help`:
+    Display command line help message.
+
+## EXAMPLES
+
+`shomen-yard`<br>
+`shome-yard -r README.md -t "MyApp Docs" lib - [A-Z]*.*`
+
+## RESOURCES
+
+* [On GitHub](http://github.com/rubyworks/shomen-yard)
+
+## SEE ALSO
+
+shomen-rdoc(1)
