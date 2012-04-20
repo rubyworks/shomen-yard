@@ -10,8 +10,7 @@ spec/02_class.rdoc
 spec/03_module.rdoc
 spec/04_constant.rdoc
 spec/05_method.rdoc
-spec/08_rdoc/01_interface_overloading.rdoc
-spec/09_yard/01_interface_overloading.rdoc
+spec/10_interface_overloading.rdoc
 spec/applique/ae.rb
 spec/applique/shomen.rb
 spec/fixture/lib/example.rb
