@@ -13,7 +13,7 @@ gem:
 
 qed:
   active: false
-  files: spec
+  files: demo
 
 dnote:
   labels: ~
